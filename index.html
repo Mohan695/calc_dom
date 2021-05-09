@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <style>
+        .digit {
+            background: purple;
+            color: white;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var div = document.createElement('div');
+        div.innerHTML = "Calculator";
+        document.body.append(div);
+        div.setAttribute("class", "card bg-primary text-white");
+        div.setAttribute("style", "width:18rem;text-align:center; margin-right:auto; margin-left:auto;margin-top:20px;");
+
+        var bodyofcalc = document.createElement('div');
+        bodyofcalc.setAttribute("class", "card-body bg-white text-dark");
+        bodyofcalc.setAttribute("style", "padding:1px;")
+        div.append(bodyofcalc);
+
+        var cont = document.createElement('div');
+        cont.setAttribute("class", "container-fluid");
+        bodyofcalc.append(cont);
+
+        var row1 = document.createElement('div');
+        var row2 = document.createElement('div');
+        var row3 = document.createElement('div');
+        var row4 = document.createElement('div');
+        var row5 = document.createElement('div');
+        var row6 = document.createElement('div');
+
+        row1.setAttribute("class", "row");
+        row2.setAttribute("class", "row");
+        row3.setAttribute("class", "row");
+        row4.setAttribute("class", "row");
+        row5.setAttribute("class", "row");
+        row6.setAttribute("class", "row");
+
+        cont.append(row1, row2, row3, row4, row5, row6);
+
+        var col11 = document.createElement('div');
+        col11.setAttribute("class", "col-12");
+        row1.append(col11);
+
+
+        var inputbox = document.createElement('input');
+        inputbox.setAttribute("id", "input_area");
+        inputbox.setAttribute("type", "text");
+        inputbox.setAttribute("style", "border:0.1px solid black;text-align:right; width:100%;margin:6px;");
+        inputbox.innerHTML = " ";
+        col11.append(inputbox);
+
+        var answerbox = document.createElement('input');
+        answerbox.setAttribute("type", "text")
+        answerbox.setAttribute("id", "answer_area");
+        answerbox.innerHTML = "0";
+        answerbox.setAttribute("style", "background:lightblue;color:darkgreen;border:0.1px solid black;text-align:right; margin: 6px;width:100%;");
+        var clear_button = document.createElement('input');
+        clear_button.setAttribute("type", "button");
+        clear_button.setAttribute("value", "AC");
+        clear_button.setAttribute("onclick", "clr()");
+        clear_button.setAttribute("class", "digit");
+        clear_button.style.backgroundColor = "crimson";
+        clear_button.style.color = "white";
+        var col21 = document.createElement('div');
+        var col22 = document.createElement('div');
+        col21.setAttribute("class", "col-9");
+        col22.setAttribute("class", "col-3");
+        row2.append(col21, col22);
+        col21.append(answerbox);
+        col22.append(clear_button);
+
+        var col31 = document.createElement('div');
+        var col32 = document.createElement('div');
+        var col33 = document.createElement('div');
+        var col34 = document.createElement('div');
+        var col41 = document.createElement('div');
+        var col42 = document.createElement('div');
+        var col43 = document.createElement('div');
+        var col44 = document.createElement('div');
+        var col51 = document.createElement('div');
+        var col52 = document.createElement('div');
+        var col53 = document.createElement('div');
+        var col54 = document.createElement('div');
+        var col61 = document.createElement('div');
+        var col62 = document.createElement('div');
+        var col63 = document.createElement('div');
+        var col64 = document.createElement('div');
+        row3.append(col31, col32, col33, col34);
+        row4.append(col41, col42, col43, col44);
+        row5.append(col51, col52, col53, col54);
+        row6.append(col61, col62, col63, col64);
+
+        col31.setAttribute("class", "col-3");
+        col32.setAttribute("class", "col-3");
+        col33.setAttribute("class", "col-3");
+        col34.setAttribute("class", "col-3");
+        col41.setAttribute("class", "col-3");
+        col42.setAttribute("class", "col-3");
+        col43.setAttribute("class", "col-3");
+        col44.setAttribute("class", "col-3");
+        col51.setAttribute("class", "col-3");
+        col52.setAttribute("class", "col-3");
+        col53.setAttribute("class", "col-3");
+        col54.setAttribute("class", "col-3");
+        col61.setAttribute("class", "col-3");
+        col62.setAttribute("class", "col-3");
+        col63.setAttribute("class", "col-3");
+        col64.setAttribute("class", "col-3");
+
+
+        var button1 = document.createElement('input');
+        button1.setAttribute("class", "digit");
+        button1.setAttribute("type", "button");
+        button1.setAttribute("value", "1");
+        button1.setAttribute("onclick", "dis('1')");
+        col31.append(button1);
+
+        var button2 = document.createElement('input');
+        button2.setAttribute("class", "digit");
+        button2.setAttribute("type", "button");
+        button2.setAttribute("value", "2");
+        button2.setAttribute("onclick", "dis('2')");
+        col32.append(button2);
+
+        var button3 = document.createElement('input');
+        button3.setAttribute("class", "digit");
+        button3.setAttribute("type", "button");
+        button3.setAttribute("value", "3");
+        button3.setAttribute("onclick", "dis('3')");
+        col33.append(button3);
+
+        var button4 = document.createElement('input');
+        button4.setAttribute("class", "digit");
+        button4.setAttribute("type", "button");
+        button4.setAttribute("value", "4");
+        button4.setAttribute("onclick", "dis('4')");
+        col41.append(button4);
+
+        var button5 = document.createElement('input');
+        button5.setAttribute("class", "digit");
+        button5.setAttribute("type", "button");
+        button5.setAttribute("value", "5");
+        button5.setAttribute("onclick", "dis('5')");
+        col42.append(button5);
+
+        var button6 = document.createElement('input');
+        button6.setAttribute("class", "digit");
+        button6.setAttribute("type", "button");
+        button6.setAttribute("value", "6");
+        button6.setAttribute("onclick", "dis('6')");
+        col43.append(button6);
+
+        var button7 = document.createElement('input');
+        button7.setAttribute("class", "digit");
+        button7.setAttribute("type", "button");
+        button7.setAttribute("value", "7");
+        button7.setAttribute("onclick", "dis('7')");
+        col51.append(button7);
+
+        var button8 = document.createElement('input');
+        button8.setAttribute("class", "digit");
+        button8.setAttribute("type", "button");
+        button8.setAttribute("value", "8");
+        button8.setAttribute("onclick", "dis('8')");
+        col52.append(button8);
+
+        var button9 = document.createElement('input');
+        button9.setAttribute("class", "digit");
+        button9.setAttribute("type", "button");
+        button9.setAttribute("value", "9");
+        button9.setAttribute("onclick", "dis('9')");
+        col53.append(button9);
+
+        var button0 = document.createElement('input');
+        button0.setAttribute("class", "digit");
+        button0.setAttribute("type", "button");
+        button0.setAttribute("value", "0");
+        button0.setAttribute("onclick", "dis('0')");
+        col62.append(button0);
+
+        var button_decimal = document.createElement('input');
+        button_decimal.setAttribute("class", "digit");
+        button_decimal.setAttribute("type", "button");
+        button_decimal.setAttribute("value", ".");
+        button_decimal.setAttribute("onclick", "dis('.')");
+        button_decimal.style.backgroundColor = "mediumaquamarine";
+        button_decimal.style.fontWeight = "bold";
+        button_decimal.style.color = "black";
+        col61.append(button_decimal);
+
+        var button_addition = document.createElement('input');
+        button_addition.setAttribute("class", "digit");
+        button_addition.setAttribute("type", "button");
+        button_addition.setAttribute("value", "+");
+        button_addition.setAttribute("onclick", "dis('+')");
+        col34.append(button_addition);
+        button_addition.style.backgroundColor = "mediumaquamarine";
+        button_addition.style.fontWeight = "bold";
+        button_addition.style.color = "black";
+
+        var button_sub = document.createElement('input');
+        button_sub.setAttribute("class", "digit");
+        button_sub.setAttribute("type", "button");
+        button_sub.setAttribute("value", "−");
+        button_sub.setAttribute("onclick", "dis('-')");
+        col44.append(button_sub);
+        button_sub.style.backgroundColor = "mediumaquamarine";
+        button_sub.style.fontWeight = "bold";
+        button_sub.style.color = "black"
+
+        var button_mul = document.createElement('input');
+        button_mul.setAttribute("class", "digit");
+        button_mul.setAttribute("type", "button");
+        button_mul.setAttribute("value", "×");
+        button_mul.setAttribute("onclick", "dis('*')");
+        col54.append(button_mul);
+        button_mul.style.backgroundColor = "mediumaquamarine";
+        button_mul.style.fontWeight = "bold";
+        button_mul.style.color = "black"
+
+        var button_div = document.createElement('input');
+        button_div.setAttribute("class", "digit");
+        button_div.setAttribute("type", "button");
+        button_div.setAttribute("value", "÷");
+        button_div.setAttribute("onclick", "dis('/')");
+        col64.append(button_div);
+        button_div.style.backgroundColor = "mediumaquamarine";
+        button_div.style.fontWeight = "bold";
+        button_div.style.color = "black"
+
+        var button_equals = document.createElement('input');
+        button_equals.setAttribute("class", "digit");
+        button_equals.setAttribute("type", "button");
+        button_equals.setAttribute("value", "=");
+        button_equals.setAttribute("onclick", "solve()");
+        col63.append(button_equals);
+        button_equals.style.backgroundColor = "mediumaquamarine";
+        button_equals.style.fontWeight = "bold";
+        button_equals.style.color = "black"
+
+        function solve() {
+            let x = document.getElementById("input_area").value;
+            let y = eval(x)
+            document.getElementById("answer_area").value = y;
+        }
+
+        function dis(val) {
+            document.getElementById("input_area").value += val
+        }
+
+        function clr() {
+            document.getElementById("input_area").value = "";
+            document.getElementById("answer_area").value = "0";
+        }
+    </script>
+</body>
+
+</html>
