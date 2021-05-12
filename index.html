@@ -11,6 +11,10 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <style>
+        * {
+            padding: 5px;
+        }
+        
         .digit {
             background: purple;
             color: white;
@@ -28,8 +32,8 @@
         div.setAttribute("style", "width:18rem;text-align:center; margin-right:auto; margin-left:auto;margin-top:20px;");
 
         var bodyofcalc = document.createElement('div');
-        bodyofcalc.setAttribute("class", "card-body bg-white text-dark");
-        bodyofcalc.setAttribute("style", "padding:1px;")
+        bodyofcalc.setAttribute("class", "card-body bg-secondary text-dark");
+        bodyofcalc.setAttribute("style", "padding:1px; background-color:light grey")
         div.append(bodyofcalc);
 
         var cont = document.createElement('div');
@@ -73,8 +77,9 @@
         clear_button.setAttribute("type", "button");
         clear_button.setAttribute("value", "AC");
         clear_button.setAttribute("onclick", "clr()");
-        clear_button.setAttribute("class", "digit");
+        clear_button.setAttribute("class", "digit ");
         clear_button.style.backgroundColor = "crimson";
+        clear_button.style.borderRadius = "50%";
         clear_button.style.color = "white";
         var col21 = document.createElement('div');
         var col22 = document.createElement('div');
@@ -128,13 +133,18 @@
         button1.setAttribute("type", "button");
         button1.setAttribute("value", "1");
         button1.setAttribute("onclick", "dis('1')");
+        button1.style.borderRadius = "50%";
         col31.append(button1);
+
+
+
 
         var button2 = document.createElement('input');
         button2.setAttribute("class", "digit");
         button2.setAttribute("type", "button");
         button2.setAttribute("value", "2");
         button2.setAttribute("onclick", "dis('2')");
+        button2.style.borderRadius = "50%";
         col32.append(button2);
 
         var button3 = document.createElement('input');
@@ -267,6 +277,20 @@
             document.getElementById("input_area").value = "";
             document.getElementById("answer_area").value = "0";
         }
+        button3.style.borderRadius = "50%";
+        button4.style.borderRadius = "50%";
+        button5.style.borderRadius = "50%";
+        button6.style.borderRadius = "50%";
+        button7.style.borderRadius = "50%";
+        button8.style.borderRadius = "50%";
+        button9.style.borderRadius = "50%";
+        button0.style.borderRadius = "50%";
+        button_addition.style.borderRadius = "50%";
+        button_sub.style.borderRadius = "50%";
+        button_mul.style.borderRadius = "50%";
+        button_decimal.style.borderRadius = "50%";
+        button_div.style.borderRadius = "50%";
+        button_equals.style.borderRadius = "50%";
     </script>
 </body>
 
